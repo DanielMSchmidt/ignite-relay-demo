@@ -11,6 +11,7 @@ import styles from './Styles/PresentationScreenStyle'
 class PresentationScreen extends React.Component {
 
   static propTypes = {
+    starWars: PropTypes.func,
     componentExamples: PropTypes.func,
     usageExamples: PropTypes.func,
     apiTesting: PropTypes.func,
@@ -33,6 +34,10 @@ class PresentationScreen extends React.Component {
               are available below.
             </Text>
           </View>
+
+          <RoundedButton onPress={this.props.starWars}>
+            Star Wars with Relay
+          </RoundedButton>
 
           <RoundedButton onPress={this.props.componentExamples}>
             Component Examples Screen
@@ -71,6 +76,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    starWars: NavigationActions.starWars,
     componentExamples: NavigationActions.componentExamples,
     usageExamples: NavigationActions.usageExamples,
     apiTesting: NavigationActions.apiTesting,
